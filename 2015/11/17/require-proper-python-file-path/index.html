@@ -51,16 +51,19 @@
 
 
 
-<meta name="description" content="Python编程在字典操作中遇到的一个坑">
+<meta name="description" content="以前的方法如果是要获得程序运行的当前目录所在位置，那么可以使用os模块的os.getcwd()函数。
+正确的方法但以上这些其实都不是脚本文件所在目录的位置,获取Python脚本所在目录实际应使用os.path.split(os.path.realpath(__file__))[0]其中__file__虽然是所在.py文件的完整路径，但是这个变量有时候返回相对路径，有时候返回绝对路径，因此 还要用o">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python字典操作中注意事项">
-<meta property="og:url" content="http://www.shily.me/2015/11/17/python-bug/index.html">
+<meta property="og:title" content="获取Python脚本所在目录的正确方法">
+<meta property="og:url" content="http://www.shily.me/2015/11/17/require-proper-python-file-path/index.html">
 <meta property="og:site_name" content="Tony042's Notes">
-<meta property="og:description" content="Python编程在字典操作中遇到的一个坑">
-<meta property="og:updated_time" content="2014-09-04T09:11:30.000Z">
+<meta property="og:description" content="以前的方法如果是要获得程序运行的当前目录所在位置，那么可以使用os模块的os.getcwd()函数。
+正确的方法但以上这些其实都不是脚本文件所在目录的位置,获取Python脚本所在目录实际应使用os.path.split(os.path.realpath(__file__))[0]其中__file__虽然是所在.py文件的完整路径，但是这个变量有时候返回相对路径，有时候返回绝对路径，因此 还要用o">
+<meta property="og:updated_time" content="2015-11-17T11:32:45.914Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python字典操作中注意事项">
-<meta name="twitter:description" content="Python编程在字典操作中遇到的一个坑">
+<meta name="twitter:title" content="获取Python脚本所在目录的正确方法">
+<meta name="twitter:description" content="以前的方法如果是要获得程序运行的当前目录所在位置，那么可以使用os模块的os.getcwd()函数。
+正确的方法但以上这些其实都不是脚本文件所在目录的位置,获取Python脚本所在目录实际应使用os.path.split(os.path.realpath(__file__))[0]其中__file__虽然是所在.py文件的完整路径，但是这个变量有时候返回相对路径，有时候返回绝对路径，因此 还要用o">
 
 
 
@@ -72,7 +75,7 @@
   };
 </script>
 
-  <title> Python字典操作中注意事项 | Tony042's Notes </title>
+  <title> 获取Python脚本所在目录的正确方法 | Tony042's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -223,7 +226,7 @@
             
             
               
-                Python字典操作中注意事项
+                获取Python脚本所在目录的正确方法
               
             
           </h1>
@@ -232,7 +235,7 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-17T01:26:39+08:00" content="2015-11-17">
+            <time itemprop="dateCreated" datetime="2015-11-17T19:22:26+08:00" content="2015-11-17">
               2015-11-17
             </time>
           </span>
@@ -258,8 +261,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/17/python-bug/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/17/python-bug/" itemprop="commentsCount"></span>
+                <a href="/2015/11/17/require-proper-python-file-path/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/17/require-proper-python-file-path/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -278,7 +281,8 @@
       
 
       
-        <span itemprop="articleBody"><p>我在进行字典操作的时候，碰到了Python中一个不算是坑的坑，让我找bug找了一个多小时，逻辑错误果然伤不起。。。在Python中dict.fromkeys(seq,val=None)的命令为创建并返回一个新字典，以序列seq中元素做字典的键，val为字典所有键对应的初始值(默认为None)。**但是注意在设置val=[]是，采取的是引用，而不是为每个键产生一个独立的列表，在采取列表操作的时候可能会出错，所以在使用这个内置函数的时候要避免此类错误。例子如下：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; a=&#123;&#125;.fromkeys([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[])</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">&#123;<span class="number">1</span>: [], <span class="number">2</span>: [], <span class="number">3</span>: []&#125;</span><br><span class="line">&gt;&gt;&gt; a[<span class="number">1</span>].append(<span class="string">"b"</span>)<span class="comment">#可能产生一个引用的逻辑错误</span></span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">&#123;<span class="number">1</span>: [<span class="string">'b'</span>], <span class="number">2</span>: [<span class="string">'b'</span>], <span class="number">3</span>: [<span class="string">'b'</span>]&#125;</span><br></pre></td></tr></table></figure></p>
+        <span itemprop="articleBody"><h2 id="以前的方法">以前的方法</h2><p>如果是要获得程序运行的当前目录所在位置，那么可以使用os模块的<code>os.getcwd()</code>函数。</p>
+<h2 id="正确的方法">正确的方法</h2><p>但以上这些其实都不是脚本文件所在目录的位置,获取Python脚本所在目录实际应使用<code>os.path.split(os.path.realpath(__file__))[0]</code>其中<code>__file__</code>虽然是所在.py文件的完整路径，但是这个变量有时候返回相对路径，有时候返回绝对路径，因此 还要用<code>os.path.realpath()</code>函数来处理一下。</p>
 </span>
       
     </div>
@@ -298,17 +302,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/17/python-pymongo/" rel="next" title="初学MongoDB">
-                <i class="fa fa-chevron-left"></i> 初学MongoDB
+              <a href="/2015/11/17/birthday-2014/" rel="next" title="离奔三又近了一步">
+                <i class="fa fa-chevron-left"></i> 离奔三又近了一步
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/17/National-Day/" rel="prev" title="国庆小记">
-                国庆小记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -335,8 +335,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/17/python-bug/"
-           data-title="Python字典操作中注意事项" data-url="http://www.shily.me/2015/11/17/python-bug/">
+      <div class="ds-thread" data-thread-key="2015/11/17/require-proper-python-file-path/"
+           data-title="获取Python脚本所在目录的正确方法" data-url="http://www.shily.me/2015/11/17/require-proper-python-file-path/">
       </div>
     
   </div>
@@ -444,7 +444,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#以前的方法"><span class="nav-number">1.</span> <span class="nav-text">以前的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正确的方法"><span class="nav-number">2.</span> <span class="nav-text">正确的方法</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
