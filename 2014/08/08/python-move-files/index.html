@@ -1,0 +1,748 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python,技术," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="Python的os模块包含了很多很有用的关于操作文件和目录的函数。如果你希望你的程序能够与平台无关的话，这个模块是尤为重要的。即它允许一个程序在编写后不需要任何改动，也不会发生任何问题，就可以在Linux和Windows下运行，这也是他的强大之处。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python os模块简介">
+<meta property="og:url" content="http://yoursite.com/2014/08/08/python-move-files/index.html">
+<meta property="og:site_name" content="Tony042's Notes">
+<meta property="og:description" content="Python的os模块包含了很多很有用的关于操作文件和目录的函数。如果你希望你的程序能够与平台无关的话，这个模块是尤为重要的。即它允许一个程序在编写后不需要任何改动，也不会发生任何问题，就可以在Linux和Windows下运行，这也是他的强大之处。">
+<meta property="og:updated_time" content="2014-09-26T14:30:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python os模块简介">
+<meta name="twitter:description" content="Python的os模块包含了很多很有用的关于操作文件和目录的函数。如果你希望你的程序能够与平台无关的话，这个模块是尤为重要的。即它允许一个程序在编写后不需要任何改动，也不会发生任何问题，就可以在Linux和Windows下运行，这也是他的强大之处。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post',
+    motion: true
+  };
+</script>
+
+  <title> Python os模块简介 | Tony042's Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Tony042's Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'N2fvbY7S_LyZckDxtS39','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python os模块简介
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2014-08-08T18:31:58+08:00" content="2014-08-08">
+              2014-08-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/08/08/python-move-files/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/08/python-move-files/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="概括">概括</h2><p>Python的os模块包含了很多很有用的关于操作文件和目录的函数。如果你希望你的程序能够与平台无关的话，这个模块是尤为重要的。即它允许一个程序在编写后不需要任何改动，也不会发生任何问题，就可以在Linux和Windows下运行，这也是他的强大之处。</p>
+<h3 id="常用函数">常用函数</h3><p>1.获得当前路径：os.getcwd()<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>os.getcwd()</span><br><span class="line"><span class="string">'C:\\Python34'</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>2.获得目录中的内容： os.listdir(path) 类似于windows下的dir命令，括号里的参数是你想列的目录。在windows下路径最好是双反斜杠，或者在路径前面加<code>r</code>。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>os.listdir(<span class="string">'C:\\python34'</span>)</span><br><span class="line">[<span class="string">'basemap-wininst.log'</span>, <span class="string">'DLLs'</span>, <span class="string">'Doc'</span>, <span class="string">'include'</span>, <span class="string">'Lib'</span>, <span class="string">'libs'</span>, <span class="string">'LICENSE.txt'</span>, <span class="string">'lxml-wininst.log'</span>, <span class="string">'matplotlib-wininst.log'</span>, <span class="string">'netCDF4-wininst.log'</span>, <span class="string">'NEWS.txt'</span>, <span class="string">'numpy-wininst.log'</span>, <span class="string">'pandas-wininst.log'</span>, <span class="string">'pyparsing-wininst.log'</span>, <span class="string">'python.exe'</span>, <span class="string">'pythonw.exe'</span>, <span class="string">'qt.conf'</span>, <span class="string">'README.txt'</span>, <span class="string">'Removebasemap.exe'</span>, <span class="string">'Removelxml.exe'</span>, <span class="string">'Removematplotlib.exe'</span>, <span class="string">'RemovenetCDF4.exe'</span>, <span class="string">'Removenumpy.exe'</span>, <span class="string">'Removepandas.exe'</span>, <span class="string">'Removepyparsing.exe'</span>, <span class="string">'Removerequests.exe'</span>, <span class="string">'Removescipy.exe'</span>, <span class="string">'requests-wininst.log'</span>, <span class="string">'scipy-wininst.log'</span>, <span class="string">'Scripts'</span>, <span class="string">'tcl'</span>, <span class="string">'Tools'</span>]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>3.创建目录：<code>os.mkdir(path)</code>参数为要创建的目录所在的位置路径比如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.mkdir(<span class="string">'E:\\book\\temp'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>4.删除目录：<code>os.rmdir(path)</code>参数为要删除目录所在的路径，注意<strong>此目录必须为空才能删除，否则出错。</strong><br>5.判断是否为目录 或者文件：<code>os.isdir(path)</code>，<code>os.isfile(path)</code>返回True则为目录或者文件，否则相反<br>6.更改当前工作目录：<code>os.chdir(path)</code>参数为要设的目录<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>os.getcwd()</span><br><span class="line"><span class="string">'C:\\Python34'</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>os.chdir(<span class="string">'C:\\Python34\\libs'</span>)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>os.getcwd()</span><br><span class="line"><span class="string">'C:\\Python34\\libs'</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>7.删除文件<code>os.remove(path)</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;os.remove(<span class="string">'C:\\python34\\test.py'</span>)</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>8.重命名文件或者目录: <code>os.rename(oldpath,newpath)</code>这个函数特别强大不仅可以改变文件名称还可以在<strong>相同分区内</strong>改变文件位置，十分方便。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;os.rename(<span class="string">'C:\\python34\\1.py'</span>,<span class="string">'C:\\2.py'</span>)</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>9.另外OS模块还有一个非常方便的方法，可以打开windows下的可执行程序，word文档啦，exe文件啦，只要是可执行的，都可以使用os的startfile打开，前提是你在系统中已经安装了相应的打开程序。比如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> os</span><br><span class="line">&gt;&gt;&gt;os.startfile(<span class="string">'D:\\movie\\test.mkv'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>然后就会执行你电脑里默认的视频播放程序打开test.mkv视频播放。很方便吧。</p>
+<h3 id="示例程序">示例程序</h3><p>我每回下载的视频文件都放在迅雷文件夹里面看完后每回都要手动进行分门别类的整理觉得很不爽，于是就利用Python花了2个小时编了一个小程序来自动帮我归档视频，下面是源代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_list</span><span class="params">(old_list,pattern)</span>:</span></span><br><span class="line">    new_list = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> old_list:</span><br><span class="line">        <span class="keyword">if</span> pattern.search(i):</span><br><span class="line">            new_list.append(i)</span><br><span class="line">    <span class="keyword">return</span> new_list</span><br><span class="line"><span class="comment">#根据下载时间来判断是否归档该文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_new_list</span><span class="params">(old_list)</span>:</span></span><br><span class="line">    new_list = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> old_list:</span><br><span class="line">        element_time = os.stat(i).st_mtime</span><br><span class="line">        difference = (time.time() - element_time)/<span class="number">86400</span></span><br><span class="line">        <span class="keyword">if</span> difference &gt;=<span class="number">4</span> :</span><br><span class="line">            new_list.append(i)</span><br><span class="line">    <span class="keyword">return</span> new_list</span><br><span class="line"><span class="comment">#归档相关文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">change_dir_list</span><span class="params">(old_list)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> old_list:</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'The.Last.Ship'</span> <span class="keyword">in</span> i:</span><br><span class="line">            old_list.remove(i)</span><br><span class="line">            os.rename(i,<span class="string">r'H:/电影/末日孤舰/'</span>+i)</span><br><span class="line">            print(i.ljust(<span class="number">35</span>)+<span class="string">'移至H:/电影/末日孤舰'</span>)</span><br><span class="line">        <span class="keyword">elif</span> <span class="string">'Tyrant'</span> <span class="keyword">in</span> i:</span><br><span class="line">            old_list.remove(i)</span><br><span class="line">            os.rename(i,<span class="string">r'H:/电影/Tyrant/'</span>+i)</span><br><span class="line">            print(i.ljust(<span class="number">35</span>)+<span class="string">'移至H:/电影/Tyrant'</span>)</span><br><span class="line">        <span class="keyword">elif</span> <span class="string">'24.S09'</span> <span class="keyword">in</span> i:</span><br><span class="line">            old_list.remove(i)</span><br><span class="line">            os.rename(i,<span class="string">r'H:/电影/24h/'</span>+i)</span><br><span class="line">            print(i.ljust(<span class="number">35</span>)+<span class="string">'移至H:/电影/24h'</span>)</span><br><span class="line">        <span class="keyword">elif</span> <span class="string">'The.Flash'</span> <span class="keyword">in</span> i:</span><br><span class="line">            old_list.remove(i)</span><br><span class="line">            os.rename(i,<span class="string">r'H:/电影/The Flash/'</span>+i)</span><br><span class="line">            print(i.ljust(<span class="number">35</span>)+<span class="string">'移至H:/电影/The Flash'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            os.rename(i,<span class="string">r'H:/电影/'</span>+i)</span><br><span class="line">            print(i.ljust(<span class="number">35</span>)+<span class="string">'移至H:/电影'</span>)</span><br><span class="line">    <span class="keyword">return</span> old_list</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">change_dir</span><span class="params">(list_dir)</span>:</span></span><br><span class="line">    pattern = re.compile(<span class="string">r'.*\.(mkv|mp4|rmvb|ass|srt)$'</span>) <span class="comment">#正则匹配视频和字幕文件</span></span><br><span class="line">    os.chdir(list_dir)</span><br><span class="line">    old_list = os.listdir()</span><br><span class="line">    new_list = get_list(old_list,pattern)</span><br><span class="line">    move_list = get_new_list(new_list)</span><br><span class="line">    new_move_list = change_dir_list(move_list[:])</span><br><span class="line">    <span class="keyword">return</span> len(move_list)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    a = time.time()</span><br><span class="line">    b = change_dir(<span class="string">r'H:\迅雷下载'</span>)</span><br><span class="line">    dir_list = [i <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir() <span class="keyword">if</span> os.path.isdir(i)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> dir_list:</span><br><span class="line">        c = change_dir(<span class="string">'H://迅雷下载//'</span>+i)</span><br><span class="line">        b = b+c</span><br><span class="line">    print(<span class="string">'本次共移动%s部电影'</span> %b)</span><br><span class="line">    print(time.time()-a)</span><br><span class="line">    input(<span class="string">'按Enter键退出'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>自从用了这个小脚本，帮我节省了好多整理文件的时间，果然是科技改变生活啊。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/技术/" rel="tag">#技术</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/08/07/python-select-member/" rel="next" title="Python消息统计">
+                <i class="fa fa-chevron-left"></i> Python消息统计
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/08/08/across-America/" rel="prev" title="祝你一路顺风">
+                祝你一路顺风 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/08/08/python-move-files/"
+           data-title="Python os模块简介" data-url="http://yoursite.com/2014/08/08/python-move-files/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7xodgy.com1.z0.glb.clouddn.com/imagesavatar.jpg" alt="Tony042" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Tony042</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">I don't know where I belong,but I'll be moving on.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Darkious" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/shi-lin-yuan" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概括"><span class="nav-number">1.</span> <span class="nav-text">概括</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用函数"><span class="nav-number">1.1.</span> <span class="nav-text">常用函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例程序"><span class="nav-number">1.2.</span> <span class="nav-text">示例程序</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tony042</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shily"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
+
+  
+  
+
+</body>
+</html>

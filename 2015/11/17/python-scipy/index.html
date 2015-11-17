@@ -1,0 +1,743 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python,技术," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="SciPy是一个开源的Python算法库和数学工具包。在小石学长摸索了整整一天后终于在Linux下编译成功SciPy^_^">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux下Python编译安装Scipy">
+<meta property="og:url" content="http://yoursite.com/2015/11/17/python-scipy/index.html">
+<meta property="og:site_name" content="Tony042's Notes">
+<meta property="og:description" content="SciPy是一个开源的Python算法库和数学工具包。在小石学长摸索了整整一天后终于在Linux下编译成功SciPy^_^">
+<meta property="og:updated_time" content="2015-02-21T14:36:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux下Python编译安装Scipy">
+<meta name="twitter:description" content="SciPy是一个开源的Python算法库和数学工具包。在小石学长摸索了整整一天后终于在Linux下编译成功SciPy^_^">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post',
+    motion: true
+  };
+</script>
+
+  <title> Linux下Python编译安装Scipy | Tony042's Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Tony042's Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'N2fvbY7S_LyZckDxtS39','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Linux下Python编译安装Scipy
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-17T01:38:30+08:00" content="2015-11-17">
+              2015-11-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/17/python-scipy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/17/python-scipy/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="SciPy简介">SciPy简介</h2><p>SciPy是一个开源的Python算法库和数学工具包。但是由于依赖一些fortran库在Linux下很难编译安装，下面便是我经过一天的摸索找到的安装方法，以飨大家。</p>
+<h3 id="编译BLAS">编译BLAS</h3><p>首先编译并静态链接Fortran库BLAS和LAPACK。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/src/</span><br><span class="line"><span class="built_in">cd</span> ~/src/</span><br><span class="line">wget http://www.netlib.org/blas/blas.tgz</span><br><span class="line">tar xzf blas.tgz</span><br><span class="line"><span class="built_in">cd</span> BLAS</span><br><span class="line"></span><br><span class="line"><span class="comment">## <span class="doctag">NOTE:</span> The selected Fortran compiler must be consistent for BLAS, LAPACK, NumPy, and SciPy.</span></span><br><span class="line"><span class="comment">## For GNU compiler on 32-bit systems:</span></span><br><span class="line"><span class="comment">#g77 -O2 -fno-second-underscore -c *.f                     # with g77</span></span><br><span class="line"><span class="comment">#gfortran -O2 -std=legacy -fno-second-underscore -c *.f    # with gfortran</span></span><br><span class="line"><span class="comment">## OR for GNU compiler on 64-bit systems:</span></span><br><span class="line"><span class="comment">#g77 -O3 -m64 -fno-second-underscore -fPIC -c *.f                     # with g77</span></span><br><span class="line">gfortran -O3 -std=legacy -m64 -fno-second-underscore <span class="operator">-f</span>PIC -c *.f    <span class="comment"># with gfortran</span></span><br><span class="line"><span class="comment">## OR for Intel compiler:</span></span><br><span class="line"><span class="comment">#ifort -FI -w90 -w95 -cm -O3 -unroll -c *.f</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Continue below irrespective of compiler:</span></span><br><span class="line">ar r libfblas.a *.o</span><br><span class="line">ranlib libfblas.a</span><br><span class="line">rm -rf *.o</span><br><span class="line"><span class="built_in">export</span> BLAS=~/src/BLAS/libfblas.a</span><br></pre></td></tr></table></figure></p>
+<p>根据Linux版本执行g77/gfortran/ifort 5条命令中的一条，下面的LAPACK安装同样需要Fortran编译器并且应与编译BLAS库的编译器相同。</p>
+<h3 id="编译LAPACK">编译LAPACK</h3><p>以gfortran编译器为例<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/src</span><br><span class="line"><span class="built_in">cd</span> ~/src/</span><br><span class="line">wget http://www.netlib.org/lapack/lapack.tgz</span><br><span class="line">tar xzf lapack.tgz</span><br><span class="line"><span class="built_in">cd</span> lapack-*/</span><br><span class="line">cp INSTALL/make.inc.gfortran make.inc          <span class="comment"># On Linux with lapack-3.2.1 or newer</span></span><br><span class="line">make lapacklib</span><br><span class="line">make clean</span><br><span class="line"><span class="built_in">export</span> LAPACK=~/src/lapack-*</span><br></pre></td></tr></table></figure></p>
+<p>如果Linux系统是64位那么应对make.inc进一步修改,在OPTS和NOOPT选项后加上-m64和-fPIC选项。修改后的make.inc例子如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">####################################################################&#10;#  LAPACK make include file.                                       #&#10;#  LAPACK, Version 3.5.0                                           #&#10;#  November 2013                                                   #&#10;####################################################################&#10;#&#10;SHELL = /bin/sh&#10;#  &#10;#  Modify the FORTRAN and OPTS definitions to refer to the&#10;#  compiler and desired compiler options for your machine.  NOOPT&#10;#  refers to the compiler options desired when NO OPTIMIZATION is&#10;#  selected.  Define LOADER and LOADOPTS to refer to the loader and &#10;#  desired load options for your machine.&#10;#&#10;FORTRAN  = gfortran &#10;OPTS     = -O2 -frecursive -m64 -fPIC&#10;DRVOPTS  = $(OPTS)&#10;NOOPT    = -O0 -frecursive -m64 -fPIC&#10;LOADER   = gfortran&#10;LOADOPTS =&#10;#&#10;# Timer for the SECOND and DSECND routines&#10;#&#10;# Default : SECOND and DSECND will use a call to the EXTERNAL FUNCTION ETIME&#10;#TIMER    = EXT_ETIME&#10;# For RS6K : SECOND and DSECND will use a call to the EXTERNAL FUNCTION ETIME_&#10;# TIMER    = EXT_ETIME_&#10;# For gfortran compiler: SECOND and DSECND will use a call to the INTERNAL FUNCTION ETIME&#10;TIMER    = INT_ETIME&#10;# If your Fortran compiler does not provide etime (like Nag Fortran Compiler, etc...)&#10;# SECOND and DSECND will use a call to the INTERNAL FUNCTION CPU_TIME&#10;# TIMER    = INT_CPU_TIME&#10;# If neither of this works...you can use the NONE value... In that case, SECOND and DSECND will always return 0&#10;# TIMER     = NONE&#10;#&#10;#  Configuration LAPACKE: Native C interface to LAPACK&#10;#  To generate LAPACKE library: type &#39;make lapackelib&#39;&#10;#  Configuration file: turned off (default)&#10;#  Complex types: C99 (default)&#10;#  Name pattern: mixed case (default)&#10;#  (64-bit) Data model: LP64 (default)&#10;#&#10;# CC is the C compiler, normally invoked with options CFLAGS.&#10;#&#10;CC = gcc&#10;CFLAGS = -O3&#10;#&#10;# LAPACKE has also the interface to some routines from tmglib,&#10;# if LAPACKE_WITH_TMG is selected, we need to add those routines to LAPACKE&#10;#LAPACKE_WITH_TMG = Yes&#10;#&#10;#  The archiver and the flag(s) to use when building archive (library)&#10;#  If you system has no ranlib, set RANLIB = echo.&#10;#&#10;ARCH     = ar&#10;ARCHFLAGS= cr&#10;RANLIB   = ranlib&#10;#&#10;#  Location of the extended-precision BLAS (XBLAS) Fortran library&#10;#  used for building and testing extended-precision routines.  The&#10;#  relevant routines will be compiled and XBLAS will be linked only if&#10;#  USEXBLAS is defined.&#10;#&#10;# USEXBLAS    = Yes&#10;XBLASLIB     =&#10;# XBLASLIB    = -lxblas&#10;#&#10;#  The location of the libraries to which you will link.  (The &#10;#  machine-specific, optimized BLAS library should be used whenever&#10;#  possible.)&#10;#&#10;BLASLIB      = ../../librefblas.a&#10;LAPACKLIB    = liblapack.a&#10;TMGLIB       = libtmglib.a&#10;LAPACKELIB   = liblapacke.a</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装SciPy">安装SciPy</h3><p>执行 pip install scipy命令即可成功安装SciPy。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/技术/" rel="tag">#技术</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/17/birthday-2014/" rel="next" title="离奔三又近了一步">
+                <i class="fa fa-chevron-left"></i> 离奔三又近了一步
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/17/record-everyday/" rel="prev" title="每日一记">
+                每日一记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/11/17/python-scipy/"
+           data-title="Linux下Python编译安装Scipy" data-url="http://yoursite.com/2015/11/17/python-scipy/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7xodgy.com1.z0.glb.clouddn.com/imagesavatar.jpg" alt="Tony042" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Tony042</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">I don't know where I belong,but I'll be moving on.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Darkious" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/shi-lin-yuan" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SciPy简介"><span class="nav-number">1.</span> <span class="nav-text">SciPy简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编译BLAS"><span class="nav-number">1.1.</span> <span class="nav-text">编译BLAS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译LAPACK"><span class="nav-number">1.2.</span> <span class="nav-text">编译LAPACK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装SciPy"><span class="nav-number">1.3.</span> <span class="nav-text">安装SciPy</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tony042</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shily"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
+
+  
+  
+
+</body>
+</html>
