@@ -3,11 +3,11 @@
   <title>MikeShi&#39;s Notes</title>
   
   
-  <link href="/atom.xml" rel="self"/>
+  <link href="/wiki/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://mikeshi1993.github.io/wiki/"/>
   <updated>2014-11-30T02:24:17.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://mikeshi1993.github.io/wiki/</id>
   
   <author>
     <name>MikeShi</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>离奔三又近了一步</title>
-    <link href="http://yoursite.com/2017/04/02/birthday-2014/"/>
-    <id>http://yoursite.com/2017/04/02/birthday-2014/</id>
+    <link href="https://mikeshi1993.github.io/wiki/2017/04/02/birthday-2014/"/>
+    <id>https://mikeshi1993.github.io/wiki/2017/04/02/birthday-2014/</id>
     <published>2017-04-02T14:08:19.603Z</published>
     <updated>2014-11-30T02:24:17.000Z</updated>
     
@@ -31,17 +31,17 @@
     
     </summary>
     
-      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://mikeshi1993.github.io/wiki/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="生日" scheme="http://yoursite.com/tags/%E7%94%9F%E6%97%A5/"/>
+      <category term="生日" scheme="https://mikeshi1993.github.io/wiki/tags/%E7%94%9F%E6%97%A5/"/>
     
   </entry>
   
   <entry>
     <title>国庆小记</title>
-    <link href="http://yoursite.com/2017/04/02/National-Day/"/>
-    <id>http://yoursite.com/2017/04/02/National-Day/</id>
+    <link href="https://mikeshi1993.github.io/wiki/2017/04/02/National-Day/"/>
+    <id>https://mikeshi1993.github.io/wiki/2017/04/02/National-Day/</id>
     <published>2017-04-02T14:08:18.590Z</published>
     <updated>2014-10-10T03:32:45.000Z</updated>
     
@@ -53,17 +53,17 @@
     
     </summary>
     
-      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://mikeshi1993.github.io/wiki/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="杂感" scheme="http://yoursite.com/tags/%E6%9D%82%E6%84%9F/"/>
+      <category term="杂感" scheme="https://mikeshi1993.github.io/wiki/tags/%E6%9D%82%E6%84%9F/"/>
     
   </entry>
   
   <entry>
     <title>Python字典操作中注意事项</title>
-    <link href="http://yoursite.com/2017/04/02/python-bug/"/>
-    <id>http://yoursite.com/2017/04/02/python-bug/</id>
+    <link href="https://mikeshi1993.github.io/wiki/2017/04/02/python-bug/"/>
+    <id>https://mikeshi1993.github.io/wiki/2017/04/02/python-bug/</id>
     <published>2017-04-02T14:08:18.277Z</published>
     <updated>2014-09-04T09:11:30.000Z</updated>
     
@@ -75,19 +75,19 @@
     
     </summary>
     
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+      <category term="Python" scheme="https://mikeshi1993.github.io/wiki/categories/Python/"/>
     
     
-      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://mikeshi1993.github.io/wiki/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="Python" scheme="https://mikeshi1993.github.io/wiki/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>初学MongoDB</title>
-    <link href="http://yoursite.com/2017/04/02/python-pymongo/"/>
-    <id>http://yoursite.com/2017/04/02/python-pymongo/</id>
+    <link href="https://mikeshi1993.github.io/wiki/2017/04/02/python-pymongo/"/>
+    <id>https://mikeshi1993.github.io/wiki/2017/04/02/python-pymongo/</id>
     <published>2017-04-02T05:37:34.312Z</published>
     <updated>2014-09-26T14:27:21.000Z</updated>
     
@@ -99,23 +99,23 @@
     
     </summary>
     
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+      <category term="Python" scheme="https://mikeshi1993.github.io/wiki/categories/Python/"/>
     
     
-      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://mikeshi1993.github.io/wiki/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="Python" scheme="https://mikeshi1993.github.io/wiki/tags/Python/"/>
     
-      <category term="数据分析" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+      <category term="数据分析" scheme="https://mikeshi1993.github.io/wiki/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
-      <category term="MogoDB" scheme="http://yoursite.com/tags/MogoDB/"/>
+      <category term="MogoDB" scheme="https://mikeshi1993.github.io/wiki/tags/MogoDB/"/>
     
   </entry>
   
   <entry>
     <title>获取Python脚本所在目录的正确方法</title>
-    <link href="http://yoursite.com/2015/11/17/require-proper-python-file-path/"/>
-    <id>http://yoursite.com/2015/11/17/require-proper-python-file-path/</id>
+    <link href="https://mikeshi1993.github.io/wiki/2015/11/17/require-proper-python-file-path/"/>
+    <id>https://mikeshi1993.github.io/wiki/2015/11/17/require-proper-python-file-path/</id>
     <published>2015-11-18T00:22:26.000Z</published>
     <updated>2015-11-17T11:32:45.000Z</updated>
     
@@ -130,19 +130,19 @@
     
     </summary>
     
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+      <category term="Python" scheme="https://mikeshi1993.github.io/wiki/categories/Python/"/>
     
     
-      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://mikeshi1993.github.io/wiki/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="Python" scheme="https://mikeshi1993.github.io/wiki/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Linux下Python编译安装Scipy</title>
-    <link href="http://yoursite.com/2015/03/07/python-scipy/"/>
-    <id>http://yoursite.com/2015/03/07/python-scipy/</id>
+    <link href="https://mikeshi1993.github.io/wiki/2015/03/07/python-scipy/"/>
+    <id>https://mikeshi1993.github.io/wiki/2015/03/07/python-scipy/</id>
     <published>2015-03-08T02:00:00.000Z</published>
     <updated>2015-11-17T11:35:04.000Z</updated>
     
@@ -154,19 +154,19 @@
     
     </summary>
     
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+      <category term="Python" scheme="https://mikeshi1993.github.io/wiki/categories/Python/"/>
     
     
-      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://mikeshi1993.github.io/wiki/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="Python" scheme="https://mikeshi1993.github.io/wiki/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Python通过xlwt模块编辑xls文件</title>
-    <link href="http://yoursite.com/2014/08/09/python-xlwt/"/>
-    <id>http://yoursite.com/2014/08/09/python-xlwt/</id>
+    <link href="https://mikeshi1993.github.io/wiki/2014/08/09/python-xlwt/"/>
+    <id>https://mikeshi1993.github.io/wiki/2014/08/09/python-xlwt/</id>
     <published>2014-08-10T01:01:29.000Z</published>
     <updated>2014-09-26T14:32:36.000Z</updated>
     
@@ -178,19 +178,19 @@
     
     </summary>
     
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+      <category term="Python" scheme="https://mikeshi1993.github.io/wiki/categories/Python/"/>
     
     
-      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://mikeshi1993.github.io/wiki/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="Python" scheme="https://mikeshi1993.github.io/wiki/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>祝你一路顺风</title>
-    <link href="http://yoursite.com/2014/08/08/across-America/"/>
-    <id>http://yoursite.com/2014/08/08/across-America/</id>
+    <link href="https://mikeshi1993.github.io/wiki/2014/08/08/across-America/"/>
+    <id>https://mikeshi1993.github.io/wiki/2014/08/08/across-America/</id>
     <published>2014-08-09T02:43:35.000Z</published>
     <updated>2014-08-08T16:13:25.000Z</updated>
     
@@ -202,17 +202,17 @@
     
     </summary>
     
-      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://mikeshi1993.github.io/wiki/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="飞跃" scheme="http://yoursite.com/tags/%E9%A3%9E%E8%B7%83/"/>
+      <category term="飞跃" scheme="https://mikeshi1993.github.io/wiki/tags/%E9%A3%9E%E8%B7%83/"/>
     
   </entry>
   
   <entry>
     <title>Python os模块简介</title>
-    <link href="http://yoursite.com/2014/08/08/python-move-files/"/>
-    <id>http://yoursite.com/2014/08/08/python-move-files/</id>
+    <link href="https://mikeshi1993.github.io/wiki/2014/08/08/python-move-files/"/>
+    <id>https://mikeshi1993.github.io/wiki/2014/08/08/python-move-files/</id>
     <published>2014-08-08T22:31:58.000Z</published>
     <updated>2015-11-17T07:13:10.000Z</updated>
     
@@ -224,19 +224,19 @@
     
     </summary>
     
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+      <category term="Python" scheme="https://mikeshi1993.github.io/wiki/categories/Python/"/>
     
     
-      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://mikeshi1993.github.io/wiki/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="Python" scheme="https://mikeshi1993.github.io/wiki/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Python消息统计</title>
-    <link href="http://yoursite.com/2014/08/07/python-select-member/"/>
-    <id>http://yoursite.com/2014/08/07/python-select-member/</id>
+    <link href="https://mikeshi1993.github.io/wiki/2014/08/07/python-select-member/"/>
+    <id>https://mikeshi1993.github.io/wiki/2014/08/07/python-select-member/</id>
     <published>2014-08-07T22:55:25.000Z</published>
     <updated>2014-08-07T11:58:32.000Z</updated>
     
@@ -248,19 +248,19 @@
     
     </summary>
     
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+      <category term="Python" scheme="https://mikeshi1993.github.io/wiki/categories/Python/"/>
     
     
-      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://mikeshi1993.github.io/wiki/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="Python" scheme="https://mikeshi1993.github.io/wiki/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建教程(2)</title>
-    <link href="http://yoursite.com/2014/08/07/hexo-2/"/>
-    <id>http://yoursite.com/2014/08/07/hexo-2/</id>
+    <link href="https://mikeshi1993.github.io/wiki/2014/08/07/hexo-2/"/>
+    <id>https://mikeshi1993.github.io/wiki/2014/08/07/hexo-2/</id>
     <published>2014-08-07T17:11:30.000Z</published>
     <updated>2014-09-26T14:33:18.000Z</updated>
     
@@ -272,17 +272,17 @@
     
     </summary>
     
-      <category term="hexo" scheme="http://yoursite.com/categories/hexo/"/>
+      <category term="hexo" scheme="https://mikeshi1993.github.io/wiki/categories/hexo/"/>
     
     
-      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://mikeshi1993.github.io/wiki/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建教程(1)</title>
-    <link href="http://yoursite.com/2014/08/07/hexo-1/"/>
-    <id>http://yoursite.com/2014/08/07/hexo-1/</id>
+    <link href="https://mikeshi1993.github.io/wiki/2014/08/07/hexo-1/"/>
+    <id>https://mikeshi1993.github.io/wiki/2014/08/07/hexo-1/</id>
     <published>2014-08-07T13:48:25.000Z</published>
     <updated>2014-09-26T14:33:21.000Z</updated>
     
@@ -294,17 +294,17 @@
     
     </summary>
     
-      <category term="hexo" scheme="http://yoursite.com/categories/hexo/"/>
+      <category term="hexo" scheme="https://mikeshi1993.github.io/wiki/categories/hexo/"/>
     
     
-      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://mikeshi1993.github.io/wiki/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>第一天，新的开始</title>
-    <link href="http://yoursite.com/2014/08/06/first/"/>
-    <id>http://yoursite.com/2014/08/06/first/</id>
+    <link href="https://mikeshi1993.github.io/wiki/2014/08/06/first/"/>
+    <id>https://mikeshi1993.github.io/wiki/2014/08/06/first/</id>
     <published>2014-08-07T02:02:02.000Z</published>
     <updated>2014-08-07T05:26:54.000Z</updated>
     
@@ -320,17 +320,17 @@
     
     </summary>
     
-      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+      <category term="blog" scheme="https://mikeshi1993.github.io/wiki/categories/blog/"/>
     
     
-      <category term="飞跃" scheme="http://yoursite.com/tags/%E9%A3%9E%E8%B7%83/"/>
+      <category term="飞跃" scheme="https://mikeshi1993.github.io/wiki/tags/%E9%A3%9E%E8%B7%83/"/>
     
   </entry>
   
   <entry>
     <title>HongKong</title>
-    <link href="http://yoursite.com/2013/10/07/HongKong/"/>
-    <id>http://yoursite.com/2013/10/07/HongKong/</id>
+    <link href="https://mikeshi1993.github.io/wiki/2013/10/07/HongKong/"/>
+    <id>https://mikeshi1993.github.io/wiki/2013/10/07/HongKong/</id>
     <published>2013-10-08T01:00:00.000Z</published>
     <updated>2014-08-08T09:00:07.000Z</updated>
     
@@ -342,10 +342,10 @@
     
     </summary>
     
-      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+      <category term="blog" scheme="https://mikeshi1993.github.io/wiki/categories/blog/"/>
     
     
-      <category term="旅行" scheme="http://yoursite.com/tags/%E6%97%85%E8%A1%8C/"/>
+      <category term="旅行" scheme="https://mikeshi1993.github.io/wiki/tags/%E6%97%85%E8%A1%8C/"/>
     
   </entry>
   
