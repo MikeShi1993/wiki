@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>MikeShi&#39;s Notes</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2014-11-30T02:24:17.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>MikeShi</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>离奔三又近了一步</title>
+    <link href="http://yoursite.com/2017/04/02/birthday-2014/"/>
+    <id>http://yoursite.com/2017/04/02/birthday-2014/</id>
+    <published>2017-04-02T14:08:19.603Z</published>
+    <updated>2014-11-30T02:24:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;昨天头昏昏沉沉的，到校医院一检查，医生姐姐看了看体温计很淡定的说了句38度5，我诧异了一下“高烧啊”&gt;_&lt;医生姐姐又很淡定的来了句只能算是中等程度ORZ。开了药，拖着步子回寝室，吃完药躺床上从昨天6点睡到现在才爬起来默默地写写blog。<br>&emsp;&emsp;一早醒来，打开iPad就看到褒哥和包子的生日祝福，瞬间心情就好了很多，加上昨天到货的木馒头，这个生日也是蛮有意义的，不多写了，要去看康斯坦丁了，还有21天考托&gt;_&lt;T^T,加油。</p>]]></content>
+    
+    <summary type="html">
+    
+      奔三了&gt;_&lt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="生日" scheme="http://yoursite.com/tags/%E7%94%9F%E6%97%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>国庆小记</title>
+    <link href="http://yoursite.com/2017/04/02/National-Day/"/>
+    <id>http://yoursite.com/2017/04/02/National-Day/</id>
+    <published>2017-04-02T14:08:18.590Z</published>
+    <updated>2014-10-10T03:32:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本来说好昨天写完的，结果就拖到了今天，拖延症真心伤不起&gt;_&lt;昨天去实验室本来想大干一场（我真的不是因为寝室电用完了才去的=￣ω￣=），可是现实是残酷的。。。国重的超算又宕机了，撸了几把炉石就无奈的回到了寝室，拉上室友一起先爬岳麓山然后又去长沙油炸社吃了烧烤，瞬间觉得整个人生是如此的美好——吃吃喝喝玩玩乐乐睡睡（怎么突然感觉和某种动物好像？！）。一入大三，就觉得自己有好多事要做，可是在这个关键的时候我却什么都不想干，连Python都不想玩了。。。这学期给自己定下了很多目标：</p><ol><li>把Toefl考过。</li><li>把GRE单词背完。</li><li>项目认真做，做出点东西。</li><li>Python用WeRobot搭一个像中南助手一样的微信公众号出来。</li><li>把成绩搞好。</li></ol><p>不过好像现在一向都没完成，在给大一孩子开班会的时候还说让他们好好学习，争取在大一大二的时候把GT都考过了，可是看看自己呢，好惭愧。。。大一的时候体会到了一下恋爱的感觉，可是并没有想象中那么美好，更多的还是苦涩，最后也是一个悲伤的结局。大二想要努力搞学习好像和现实的差距好大。今年要是能把上面的那五个目标都搞定就好了，如果再能遇到一个对的人，我觉得我真的会觉得很开很开心，要是能做一个炫酷又懂生活的人最棒了&gt;_&lt;<br>————————————————————————Update——————————————————————<br>第四项已完成，欢迎大家加我的微信公众号shily_me，关注后可以向我要激活码开启更多隐藏功能。</p>]]></content>
+    
+    <summary type="html">
+    
+      十一蹲在实验室无聊就随便写写吧。
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="杂感" scheme="http://yoursite.com/tags/%E6%9D%82%E6%84%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python字典操作中注意事项</title>
+    <link href="http://yoursite.com/2017/04/02/python-bug/"/>
+    <id>http://yoursite.com/2017/04/02/python-bug/</id>
+    <published>2017-04-02T14:08:18.277Z</published>
+    <updated>2014-09-04T09:11:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>我在进行字典操作的时候，碰到了Python中一个不算是坑的坑，让我找bug找了一个多小时，逻辑错误果然伤不起。。。在Python中dict.fromkeys(seq,val=None)的命令为创建并返回一个新字典，以序列seq中元素做字典的键，val为字典所有键对应的初始值(默认为None)。**但是注意在设置val=[]是，采取的是引用，而不是为每个键产生一个独立的列表，在采取列表操作的时候可能会出错，所以在使用这个内置函数的时候要避免此类错误。例子如下：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; a=&#123;&#125;.fromkeys([1,2,3],[])</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">&#123;1: [], 2: [], 3: []&#125;</span><br><span class="line">&gt;&gt;&gt; a[1].append(<span class="string">"b"</span>)<span class="comment">#可能产生一个引用的逻辑错误</span></span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">&#123;1: [<span class="string">'b'</span>], 2: [<span class="string">'b'</span>], 3: [<span class="string">'b'</span>]&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      Python编程在字典操作中遇到的一个坑
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初学MongoDB</title>
+    <link href="http://yoursite.com/2017/04/02/python-pymongo/"/>
+    <id>http://yoursite.com/2017/04/02/python-pymongo/</id>
+    <published>2017-04-02T05:37:34.312Z</published>
+    <updated>2014-09-26T14:27:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天初学MongoDB，感觉比关系型数据库好上手多了，而且比较符合人类思维也不用担心Sql注入之类的问题，其实本来不想换数据库的，这都是被WeRobot逼的，谁叫它只支持NoSql数据库啊，T^T，不过上手感觉还不错，比Mysql简单多了，半小时就上手了，就是Mysql向MongoDB数据迁移比较麻烦，出现了很多问题，下面是我找到的解决办法，就记录下来备忘。</p><p>首先在安装目录bin文件夹下shift+左键打开cmd，执行以下命令：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mongod --logpath D:/mongodb/logs/mongodb.log --logappend</span><br><span class="line">--dbpath D:/mongodb/data/db --directoryperdb --serviceName MongoDB --install</span><br></pre></td></tr></table></figure></p><p>该命令行指定了日志文件：/logs/MongoDB.log，日志是以追加的方式输出的。数据文件目录：/data/db，并且参数–directoryperdb说明每个DB都会新建一个目录。Windows服务的名称：MongoDB；<br>以上的三个参数都是可以根据自己的情况而定的。最后是安装参数：–install，与之相对的是–remove，以后就可以在cmd下用命令net start MongoDB和net stop MongoDB来启动和停止MongoDB了，也可以在本地服务中看到。</p>]]></content>
+    
+    <summary type="html">
+    
+      MongoDB,是目前非常流行的一种非关系型数据库(NoSql),数据存储方式十分灵活。MongoDB很好的实现了面向对象的思想(OO思想),在MongoDB中 每一条记录都是一个Document对象。Mongo DB最大的优势在于所有的数据持久操作都无需开发人员手动编写SQL语句,直接调用方法就可以轻松的实现CRUD操作。
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="数据分析" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="MogoDB" scheme="http://yoursite.com/tags/MogoDB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>获取Python脚本所在目录的正确方法</title>
+    <link href="http://yoursite.com/2015/11/17/require-proper-python-file-path/"/>
+    <id>http://yoursite.com/2015/11/17/require-proper-python-file-path/</id>
+    <published>2015-11-18T00:22:26.000Z</published>
+    <updated>2015-11-17T11:32:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="以前的方法"><a href="#以前的方法" class="headerlink" title="以前的方法"></a>以前的方法</h2><p>如果是要获得程序运行的当前目录所在位置，那么可以使用os模块的<code>os.getcwd()</code>函数。</p><h2 id="正确的方法"><a href="#正确的方法" class="headerlink" title="正确的方法"></a>正确的方法</h2><p>但以上这些其实都不是脚本文件所在目录的位置,获取Python脚本所在目录实际应使用<code>os.path.split(os.path.realpath(__file__))[0]</code>其中<code>__file__</code>虽然是所在.py文件的完整路径，但是这个变量有时候返回相对路径，有时候返回绝对路径，因此 还要用<code>os.path.realpath()</code>函数来处理一下。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;以前的方法&quot;&gt;&lt;a href=&quot;#以前的方法&quot; class=&quot;headerlink&quot; title=&quot;以前的方法&quot;&gt;&lt;/a&gt;以前的方法&lt;/h2&gt;&lt;p&gt;如果是要获得程序运行的当前目录所在位置，那么可以使用os模块的&lt;code&gt;os.getcwd()&lt;/code&gt;函数。
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下Python编译安装Scipy</title>
+    <link href="http://yoursite.com/2015/03/07/python-scipy/"/>
+    <id>http://yoursite.com/2015/03/07/python-scipy/</id>
+    <published>2015-03-08T02:00:00.000Z</published>
+    <updated>2015-11-17T11:35:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="SciPy简介"><a href="#SciPy简介" class="headerlink" title="SciPy简介"></a>SciPy简介</h2><p>SciPy是一个开源的Python算法库和数学工具包。但是由于依赖一些fortran库在Linux下很难编译安装，下面便是我经过一天的摸索找到的安装方法，以飨大家。</p><h2 id="SciPy安装方法"><a href="#SciPy安装方法" class="headerlink" title="SciPy安装方法"></a>SciPy安装方法</h2><h3 id="编译BLAS"><a href="#编译BLAS" class="headerlink" title="编译BLAS"></a>编译BLAS</h3><p>首先编译并静态链接Fortran库BLAS和LAPACK。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p ~/src/</span><br><span class="line"><span class="built_in">cd</span> ~/src/</span><br><span class="line">wget http://www.netlib.org/blas/blas.tgz</span><br><span class="line">tar xzf blas.tgz</span><br><span class="line"><span class="built_in">cd</span> BLAS</span><br><span class="line"></span><br><span class="line"><span class="comment">## <span class="doctag">NOTE:</span> The selected Fortran compiler must be consistent for BLAS, LAPACK, NumPy, and SciPy.</span></span><br><span class="line"><span class="comment">## For GNU compiler on 32-bit systems:</span></span><br><span class="line"><span class="comment">#g77 -O2 -fno-second-underscore -c *.f                     # with g77</span></span><br><span class="line"><span class="comment">#gfortran -O2 -std=legacy -fno-second-underscore -c *.f    # with gfortran</span></span><br><span class="line"><span class="comment">## OR for GNU compiler on 64-bit systems:</span></span><br><span class="line"><span class="comment">#g77 -O3 -m64 -fno-second-underscore -fPIC -c *.f                     # with g77</span></span><br><span class="line">gfortran -O3 -std=legacy -m64 -fno-second-underscore -fPIC -c *.f    <span class="comment"># with gfortran</span></span><br><span class="line"><span class="comment">## OR for Intel compiler:</span></span><br><span class="line"><span class="comment">#ifort -FI -w90 -w95 -cm -O3 -unroll -c *.f</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Continue below irrespective of compiler:</span></span><br><span class="line">ar r libfblas.a *.o</span><br><span class="line">ranlib libfblas.a</span><br><span class="line">rm -rf *.o</span><br><span class="line"><span class="built_in">export</span> BLAS=~/src/BLAS/libfblas.a</span><br></pre></td></tr></table></figure></p><p>根据Linux版本执行g77/gfortran/ifort 5条命令中的一条，下面的LAPACK安装同样需要Fortran编译器并且应与编译BLAS库的编译器相同。</p><h3 id="编译LAPACK"><a href="#编译LAPACK" class="headerlink" title="编译LAPACK"></a>编译LAPACK</h3><p>以gfortran编译器为例<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p ~/src</span><br><span class="line"><span class="built_in">cd</span> ~/src/</span><br><span class="line">wget http://www.netlib.org/lapack/lapack.tgz</span><br><span class="line">tar xzf lapack.tgz</span><br><span class="line"><span class="built_in">cd</span> lapack-*/</span><br><span class="line">cp INSTALL/make.inc.gfortran make.inc          <span class="comment"># On Linux with lapack-3.2.1 or newer</span></span><br><span class="line">make lapacklib</span><br><span class="line">make clean</span><br><span class="line"><span class="built_in">export</span> LAPACK=~/src/lapack-*</span><br></pre></td></tr></table></figure></p><p>如果Linux系统是64位那么应对make.inc进一步修改,在OPTS和NOOPT选项后加上-m64和-fPIC选项。修改后的make.inc例子如下：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">####################################################################</span></span><br><span class="line"><span class="comment">#  LAPACK make include file.                                       #</span></span><br><span class="line"><span class="comment">#  LAPACK, Version 3.5.0                                           #</span></span><br><span class="line"><span class="comment">#  November 2013                                                   #</span></span><br><span class="line"><span class="comment">####################################################################</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">SHELL = /bin/sh</span><br><span class="line"><span class="comment">#  </span></span><br><span class="line"><span class="comment">#  Modify the FORTRAN and OPTS definitions to refer to the</span></span><br><span class="line"><span class="comment">#  compiler and desired compiler options for your machine.  NOOPT</span></span><br><span class="line"><span class="comment">#  refers to the compiler options desired when NO OPTIMIZATION is</span></span><br><span class="line"><span class="comment">#  selected.  Define LOADER and LOADOPTS to refer to the loader and</span></span><br><span class="line"><span class="comment">#  desired load options for your machine.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">FORTRAN  = gfortran</span><br><span class="line">OPTS     = -O2 -frecursive -m64 -fPIC</span><br><span class="line">DRVOPTS  = $(OPTS)</span><br><span class="line">NOOPT    = -O0 -frecursive -m64 -fPIC</span><br><span class="line">LOADER   = gfortran</span><br><span class="line">LOADOPTS =</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Timer for the SECOND and DSECND routines</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Default : SECOND and DSECND will use a call to the EXTERNAL FUNCTION ETIME</span></span><br><span class="line"><span class="comment">#TIMER    = EXT_ETIME</span></span><br><span class="line"><span class="comment"># For RS6K : SECOND and DSECND will use a call to the EXTERNAL FUNCTION ETIME_</span></span><br><span class="line"><span class="comment"># TIMER    = EXT_ETIME_</span></span><br><span class="line"><span class="comment"># For gfortran compiler: SECOND and DSECND will use a call to the INTERNAL FUNCTION ETIME</span></span><br><span class="line">TIMER    = INT_ETIME</span><br><span class="line"><span class="comment"># If your Fortran compiler does not provide etime (like Nag Fortran Compiler, etc...)</span></span><br><span class="line"><span class="comment"># SECOND and DSECND will use a call to the INTERNAL FUNCTION CPU_TIME</span></span><br><span class="line"><span class="comment"># TIMER    = INT_CPU_TIME</span></span><br><span class="line"><span class="comment"># If neither of this works...you can use the NONE value... In that case, SECOND and DSECND will always return 0</span></span><br><span class="line"><span class="comment"># TIMER     = NONE</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#  Configuration LAPACKE: Native C interface to LAPACK</span></span><br><span class="line"><span class="comment">#  To generate LAPACKE library: type 'make lapackelib'</span></span><br><span class="line"><span class="comment">#  Configuration file: turned off (default)</span></span><br><span class="line"><span class="comment">#  Complex types: C99 (default)</span></span><br><span class="line"><span class="comment">#  Name pattern: mixed case (default)</span></span><br><span class="line"><span class="comment">#  (64-bit) Data model: LP64 (default)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># CC is the C compiler, normally invoked with options CFLAGS.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">CC = gcc</span><br><span class="line">CFLAGS = -O3</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># LAPACKE has also the interface to some routines from tmglib,</span></span><br><span class="line"><span class="comment"># if LAPACKE_WITH_TMG is selected, we need to add those routines to LAPACKE</span></span><br><span class="line"><span class="comment">#LAPACKE_WITH_TMG = Yes</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#  The archiver and the flag(s) to use when building archive (library)</span></span><br><span class="line"><span class="comment">#  If you system has no ranlib, set RANLIB = echo.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">ARCH     = ar</span><br><span class="line">ARCHFLAGS= cr</span><br><span class="line">RANLIB   = ranlib</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#  Location of the extended-precision BLAS (XBLAS) Fortran library</span></span><br><span class="line"><span class="comment">#  used for building and testing extended-precision routines.  The</span></span><br><span class="line"><span class="comment">#  relevant routines will be compiled and XBLAS will be linked only if</span></span><br><span class="line"><span class="comment">#  USEXBLAS is defined.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># USEXBLAS    = Yes</span></span><br><span class="line">XBLASLIB     =</span><br><span class="line"><span class="comment"># XBLASLIB    = -lxblas</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#  The location of the libraries to which you will link.  (The</span></span><br><span class="line"><span class="comment">#  machine-specific, optimized BLAS library should be used whenever</span></span><br><span class="line"><span class="comment">#  possible.)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">BLASLIB      = ../../librefblas.a</span><br><span class="line">LAPACKLIB    = liblapack.a</span><br><span class="line">TMGLIB       = libtmglib.a</span><br><span class="line">LAPACKELIB   = liblapacke.a</span><br></pre></td></tr></table></figure></p><h3 id="安装SciPy-Package"><a href="#安装SciPy-Package" class="headerlink" title="安装SciPy Package"></a>安装SciPy Package</h3><p>执行 pip install scipy命令即可成功安装SciPy。</p>]]></content>
+    
+    <summary type="html">
+    
+      SciPy是一个开源的Python算法库和数学工具包。在小石学长摸索了整整一天后终于在Linux下编译成功SciPy^_^
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python通过xlwt模块编辑xls文件</title>
+    <link href="http://yoursite.com/2014/08/09/python-xlwt/"/>
+    <id>http://yoursite.com/2014/08/09/python-xlwt/</id>
+    <published>2014-08-10T01:01:29.000Z</published>
+    <updated>2014-09-26T14:32:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="xlwt模块简介"><a href="#xlwt模块简介" class="headerlink" title="xlwt模块简介"></a>xlwt模块简介</h2><p>xlwt是Python一个编辑xls文件的模块，它生成的文件能够很好的与大部分主流电子表格办公软件如Excel2000/2003/OpenOffice/Gnumeric等兼容，并且完美支持unicode。通过xlwt模块可以使Excel表格在任何平台生成，不需要依赖Excel或者COM服务器。</p><h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p><a href="https://pypi.python.org/pypi/xlwt-future/0.8.0" target="_blank" rel="noopener">xlwt-future 0.8.0</a></p><h3 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h3><p>下载后解压缩文件，然后cd到目标文件夹，执行以下命令即可：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python setup.py install</span><br></pre></td></tr></table></figure></p><h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h3><p>1.导入xlwt<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> xlwt</span><br></pre></td></tr></table></figure></p><p>2.创建Workbook<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">file = xlwt.Workbook() <span class="comment">#注意这里的Workbook首字母是大写</span></span><br></pre></td></tr></table></figure></p><p>3.新建一个sheet<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">table = file.add_sheet(<span class="string">'sheet name'</span>)</span><br></pre></td></tr></table></figure></p><p>4.写入数据table.write(行,列,value)<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">table.write(<span class="number">0</span>,<span class="number">0</span>,<span class="string">'test'</span>)</span><br></pre></td></tr></table></figure></p><p>5.保存文件<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">file.save(<span class="string">'demo.xls'</span>)</span><br></pre></td></tr></table></figure></p><p>6.使用style调整表格样式<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">style = xlwt.XFStyle() <span class="comment"># 初始化样式</span></span><br><span class="line">font = xlwt.Font() <span class="comment">#为样式创建字体</span></span><br><span class="line">font.name = <span class="string">'Times New Roman'</span> <span class="comment">#选择字体</span></span><br><span class="line">font.bold = <span class="keyword">True</span>  <span class="comment">#是否加粗</span></span><br><span class="line">style.font = font <span class="comment">#为样式设置字体</span></span><br><span class="line">table.write(<span class="number">0</span>, <span class="number">0</span>, <span class="string">'some bold Times text'</span>, style) <span class="comment"># 使用样式</span></span><br><span class="line">font.height = <span class="number">500</span> <span class="comment">#设置高度</span></span><br><span class="line">al = xlwt.Alignment()</span><br><span class="line">al.horz = xlwt.Alignment.HORZ_CENTER <span class="comment">#设置水平居中</span></span><br><span class="line">al.vert = xlwt.Alignment.VERT_CENTER <span class="comment">#设置垂直居中</span></span><br><span class="line">al.wrap = xlwt.Alignment.WRAP_AT_RIGHT <span class="comment">#设置文字可以换行</span></span><br><span class="line">style.alignment = al</span><br></pre></td></tr></table></figure></p><p>7.合并表格file.write_merge(row_1,row_2,col_1,col_2,value,style)<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">file.write_merge(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="string">'value'</span>,style) <span class="comment">#合并从第1行到第2行第3列到第4列的表格</span></span><br></pre></td></tr></table></figure></p><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>更详细的例子请参考python编译xlwt模块后，解压缩文件夹下../xlwt/examples里面的代码。</p>]]></content>
+    
+    <summary type="html">
+    
+      xlwt是Python一个编辑xls文件的模块，它生成的文件能很好的与Excel2000/2003/OpenOffice/Gnumeric兼容，并且完美支持unicode。通过xlwt模块Excel表格可以在任何平台生成，不需要依赖Excel或者COM服务器。
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>祝你一路顺风</title>
+    <link href="http://yoursite.com/2014/08/08/across-America/"/>
+    <id>http://yoursite.com/2014/08/08/across-America/</id>
+    <published>2014-08-09T02:43:35.000Z</published>
+    <updated>2014-08-08T16:13:25.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;我第一次对你有印象还是在33栋的楼梯上碰到你，我俩聊了一些关于科创的事情，最后你突然问我：<em>有出国的打算么？</em>我说：<em>有呀。</em>于是从那时起，我俩在生活中便有了交集。本以为是大学生活中一位匆匆过客，却没想到在之后的时光里你对我的影响有那么深刻。</p><ul><li>大一的时候带我到实验室，初次对实验室有了大概的印象，本以为实验室是做实验的地方，应该摆满各种仪器试管烧杯炉子，居然没想到也可以住人，三观彻底颠覆了好吗，而且实验室那叫一个<em>“整洁”</em>。当然也被震撼了，居然还有看paper看到3点，6点钟继续起来做实验的人。瞬间有了一种膜拜之感（膝盖中了一箭）。</li><li>打数模的时候，从鼓励我和猪猪大一的时候不要畏惧参加数模培训到已经拿了M奖的你在赛前还帮我们联系指导老师，比赛的时候帮我们理思路。打美赛的时候，因为时间很紧，忘了找你帮忙，打完比赛，你还一脸幽怨的对我说：<em>怎么没找我来讨论讨论题目？</em>每每想到这个场景，总觉得你真的是太可爱了呢。还有每次见面时都会问：GPA怎么样，Research怎么样，题做了没？（每次见你好想绕道走有木有？！压力太大了有木有？！)这种督促让我学到了很多实实在在的东西，通过数模熟悉了Matlab，之后又自学了语法很像的Python,再到现在Python日益熟练，编了很多脚本，也做了很多东西（Blog,网站,GUI什么的）在学习路上在编程路上的一点点进步真的离不开你的督促和帮助。Thank you very much.</li><li>导师也是你帮我联系的哦，而且居然帮我选了一个完美融合计算机和材料学的方向，这个太nice啦，真的很谢谢你帮我找到了一个这么适合我的方向。你还帮我引荐了一位美女学姐，没想到见面后居然是已经联系了快一年的丁盈姐。不得不感叹这个世界太小，时间太快。之后成功的进了龚老师的团队，慢慢地认识了组里的每一个人。也感谢大师兄，丁盈姐，强哥，王师兄，魏彩师姐还有嘉玺学长在我求知路上的帮助^_^没有你们我不可能走得这么远。</li><li>这个夏天又通过你认识了一昆，泽宇，时文3个好兄弟（猪猪咱俩太熟悉就不多说什么了，嘿嘿）。还进行了一次印象深刻的头脑风暴，也一起去酒吧High过。你去美国之后，放心吧，我们一定会在未来迈出更加坚实的步伐。</li></ul><p>—————————————————————我是可爱的分割线？———————————————————</p><p>没想到整整一年都过去了，你的发型也变3、4回（我观察的可仔细了），我也成功地由小石学弟变成了小石学长（你都成学叔下架了，哈哈）。今天下午上数模课，你打电话跟我说你明天就要飞上海，后天就要飞底特律的时候，我愣了一下，还以为你在骗我呢？！感觉好突然。只怪时间过得太快，那年今日你还在实验室守炉子，督促我和猪猪打数模，码matlab程序，我俩也在傻乎乎地试图从25万次彩票开奖记录中找出中奖的诀窍（结果当然是不可能好么，完全随机啊，我还尝试买了一注，结果血本无归T^T)。没想到今天你就要踏上去美国的旅途了呢。在CSU能碰到像你一样的大牛很不容易，能碰到愿意手把手指导我们的大牛更不容易。我不知道该多说什么了，只能谢谢你对我的帮助，祝你一路顺风，4年后成功从Mr.Wu变成Dr.Wu。分享一句话与君共勉：<strong><em>人生本来就一无所有，没有理由不追随心之所向。</em></strong></p><blockquote><p>那一天知道你要走<br>我们一句话也没有说<br>当午夜的钟声<br>敲痛离别的心门<br>却打不开你深深的沉默<br>那一天送你送到最后<br>我们一句话也没有留<br>当拥挤的月台<br>挤痛送别的人们<br>却挤不掉我深深的离愁<br>我知道你有千言你有万语<br>却不肯说出口<br>你知道我好担心我好难过<br>却不敢说出口<br>当你背上行囊卸下那份荣耀<br>我只能让眼泪留在心底<br>面带着微微笑<br>用力的挥挥手<br>祝你一路顺风<br>当你踏上月台从此一个人走<br>我只能深深的祝福你<br>深深的祝福你<br>最亲爱的朋友<br>祝你一路顺风<br>那一天送你送到最后<br>我们一句话也没有留<br>当拥挤的月台挤痛送别的人们<br>却挤不掉我深深的离愁<br>我知道你有千言你有万语<br>却不肯说出口<br>你知道我好担心我好难过<br>却不敢说出口<br>当你背上行囊卸下那份荣耀<br>我只能让眼泪留在心底<br>面带着微微笑<br>用力的挥挥手<br>祝你一路顺风<br>当你踏上月台从此一个人走<br>我只能深深的祝福你<br>深深的祝福你<br>最亲爱的朋友<br>祝你一路顺风</p></blockquote><p>—————————————————————我是可爱的分割线？———————————————————<br>前排打一个小广告，只要你能帮我完成炉石日常任务，我愿意分享一个国服战网账号，购买了星际争霸2数字典藏包，炉石所有蓝白卡基本齐全，拥有大部分紫卡，十五六张橙卡，上赛季打到天梯3级，NAXX已开通所有区，有意者速速私信我哦^_^</p>]]></content>
+    
+    <summary type="html">
+    
+      从大一进科实部帮你送材料，到认识你，再到你向我推荐龚老师，最后到今天在你去美国之前最后一次见你，只想对你说：先哲君祝你一路顺风。
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="飞跃" scheme="http://yoursite.com/tags/%E9%A3%9E%E8%B7%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python os模块简介</title>
+    <link href="http://yoursite.com/2014/08/08/python-move-files/"/>
+    <id>http://yoursite.com/2014/08/08/python-move-files/</id>
+    <published>2014-08-08T22:31:58.000Z</published>
+    <updated>2015-11-17T07:13:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="概括"><a href="#概括" class="headerlink" title="概括"></a>概括</h2><p>Python的os模块包含了很多很有用的关于操作文件和目录的函数。如果你希望你的程序能够与平台无关的话，这个模块是尤为重要的。即它允许一个程序在编写后不需要任何改动，也不会发生任何问题，就可以在Linux和Windows下运行，这也是他的强大之处。</p><h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><p>1.获得当前路径：os.getcwd()<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.getcwd()</span><br><span class="line"><span class="string">'C:\\Python34'</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p><p>2.获得目录中的内容： os.listdir(path) 类似于windows下的dir命令，括号里的参数是你想列的目录。在windows下路径最好是双反斜杠，或者在路径前面加<code>r</code>。<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.listdir(<span class="string">'C:\\python34'</span>)</span><br><span class="line">[<span class="string">'basemap-wininst.log'</span>, <span class="string">'DLLs'</span>, <span class="string">'Doc'</span>, <span class="string">'include'</span>, <span class="string">'Lib'</span>, <span class="string">'libs'</span>, <span class="string">'LICENSE.txt'</span>, <span class="string">'lxml-wininst.log'</span>, <span class="string">'matplotlib-wininst.log'</span>, <span class="string">'netCDF4-wininst.log'</span>, <span class="string">'NEWS.txt'</span>, <span class="string">'numpy-wininst.log'</span>, <span class="string">'pandas-wininst.log'</span>, <span class="string">'pyparsing-wininst.log'</span>, <span class="string">'python.exe'</span>, <span class="string">'pythonw.exe'</span>, <span class="string">'qt.conf'</span>, <span class="string">'README.txt'</span>, <span class="string">'Removebasemap.exe'</span>, <span class="string">'Removelxml.exe'</span>, <span class="string">'Removematplotlib.exe'</span>, <span class="string">'RemovenetCDF4.exe'</span>, <span class="string">'Removenumpy.exe'</span>, <span class="string">'Removepandas.exe'</span>, <span class="string">'Removepyparsing.exe'</span>, <span class="string">'Removerequests.exe'</span>, <span class="string">'Removescipy.exe'</span>, <span class="string">'requests-wininst.log'</span>, <span class="string">'scipy-wininst.log'</span>, <span class="string">'Scripts'</span>, <span class="string">'tcl'</span>, <span class="string">'Tools'</span>]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p><p>3.创建目录：<code>os.mkdir(path)</code>参数为要创建的目录所在的位置路径比如：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">os.mkdir(<span class="string">'E:\\book\\temp'</span>)</span><br></pre></td></tr></table></figure></p><p>4.删除目录：<code>os.rmdir(path)</code>参数为要删除目录所在的路径，注意<strong>此目录必须为空才能删除，否则出错。</strong><br>5.判断是否为目录 或者文件：<code>os.isdir(path)</code>，<code>os.isfile(path)</code>返回True则为目录或者文件，否则相反<br>6.更改当前工作目录：<code>os.chdir(path)</code>参数为要设的目录<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.getcwd()</span><br><span class="line"><span class="string">'C:\\Python34'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.chdir(<span class="string">'C:\\Python34\\libs'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.getcwd()</span><br><span class="line"><span class="string">'C:\\Python34\\libs'</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p><p>7.删除文件<code>os.remove(path)</code><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;os.remove(<span class="string">'C:\\python34\\test.py'</span>)</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p><p>8.重命名文件或者目录: <code>os.rename(oldpath,newpath)</code>这个函数特别强大不仅可以改变文件名称还可以在<strong>相同分区内</strong>改变文件位置，十分方便。<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;os.rename(<span class="string">'C:\\python34\\1.py'</span>,<span class="string">'C:\\2.py'</span>)</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p><p>9.另外OS模块还有一个非常方便的方法，可以打开windows下的可执行程序，word文档啦，exe文件啦，只要是可执行的，都可以使用os的startfile打开，前提是你在系统中已经安装了相应的打开程序。比如：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> os</span><br><span class="line">&gt;&gt;&gt;os.startfile(<span class="string">'D:\\movie\\test.mkv'</span>)</span><br></pre></td></tr></table></figure></p><p>然后就会执行你电脑里默认的视频播放程序打开test.mkv视频播放。很方便吧。</p><h3 id="示例程序"><a href="#示例程序" class="headerlink" title="示例程序"></a>示例程序</h3><p>我每回下载的视频文件都放在迅雷文件夹里面看完后每回都要手动进行分门别类的整理觉得很不爽，于是就利用Python花了2个小时编了一个小程序来自动帮我归档视频，下面是源代码：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_list</span><span class="params">(old_list,pattern)</span>:</span></span><br><span class="line">    new_list = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> old_list:</span><br><span class="line">        <span class="keyword">if</span> pattern.search(i):</span><br><span class="line">            new_list.append(i)</span><br><span class="line">    <span class="keyword">return</span> new_list</span><br><span class="line"><span class="comment">#根据下载时间来判断是否归档该文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_new_list</span><span class="params">(old_list)</span>:</span></span><br><span class="line">    new_list = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> old_list:</span><br><span class="line">        element_time = os.stat(i).st_mtime</span><br><span class="line">        difference = (time.time() - element_time)/<span class="number">86400</span></span><br><span class="line">        <span class="keyword">if</span> difference &gt;=<span class="number">4</span> :</span><br><span class="line">            new_list.append(i)</span><br><span class="line">    <span class="keyword">return</span> new_list</span><br><span class="line"><span class="comment">#归档相关文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">change_dir_list</span><span class="params">(old_list)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> old_list:</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'The.Last.Ship'</span> <span class="keyword">in</span> i:</span><br><span class="line">            old_list.remove(i)</span><br><span class="line">            os.rename(i,<span class="string">r'H:/电影/末日孤舰/'</span>+i)</span><br><span class="line">            print(i.ljust(<span class="number">35</span>)+<span class="string">'移至H:/电影/末日孤舰'</span>)</span><br><span class="line">        <span class="keyword">elif</span> <span class="string">'Tyrant'</span> <span class="keyword">in</span> i:</span><br><span class="line">            old_list.remove(i)</span><br><span class="line">            os.rename(i,<span class="string">r'H:/电影/Tyrant/'</span>+i)</span><br><span class="line">            print(i.ljust(<span class="number">35</span>)+<span class="string">'移至H:/电影/Tyrant'</span>)</span><br><span class="line">        <span class="keyword">elif</span> <span class="string">'24.S09'</span> <span class="keyword">in</span> i:</span><br><span class="line">            old_list.remove(i)</span><br><span class="line">            os.rename(i,<span class="string">r'H:/电影/24h/'</span>+i)</span><br><span class="line">            print(i.ljust(<span class="number">35</span>)+<span class="string">'移至H:/电影/24h'</span>)</span><br><span class="line">        <span class="keyword">elif</span> <span class="string">'The.Flash'</span> <span class="keyword">in</span> i:</span><br><span class="line">            old_list.remove(i)</span><br><span class="line">            os.rename(i,<span class="string">r'H:/电影/The Flash/'</span>+i)</span><br><span class="line">            print(i.ljust(<span class="number">35</span>)+<span class="string">'移至H:/电影/The Flash'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            os.rename(i,<span class="string">r'H:/电影/'</span>+i)</span><br><span class="line">            print(i.ljust(<span class="number">35</span>)+<span class="string">'移至H:/电影'</span>)</span><br><span class="line">    <span class="keyword">return</span> old_list</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">change_dir</span><span class="params">(list_dir)</span>:</span></span><br><span class="line">    pattern = re.compile(<span class="string">r'.*\.(mkv|mp4|rmvb|ass|srt)$'</span>) <span class="comment">#正则匹配视频和字幕文件</span></span><br><span class="line">    os.chdir(list_dir)</span><br><span class="line">    old_list = os.listdir()</span><br><span class="line">    new_list = get_list(old_list,pattern)</span><br><span class="line">    move_list = get_new_list(new_list)</span><br><span class="line">    new_move_list = change_dir_list(move_list[:])</span><br><span class="line">    <span class="keyword">return</span> len(move_list)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    a = time.time()</span><br><span class="line">    b = change_dir(<span class="string">r'H:\迅雷下载'</span>)</span><br><span class="line">    dir_list = [i <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir() <span class="keyword">if</span> os.path.isdir(i)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> dir_list:</span><br><span class="line">        c = change_dir(<span class="string">'H://迅雷下载//'</span>+i)</span><br><span class="line">        b = b+c</span><br><span class="line">    print(<span class="string">'本次共移动%s部电影'</span> %b)</span><br><span class="line">    print(time.time()-a)</span><br><span class="line">    input(<span class="string">'按Enter键退出'</span>)</span><br></pre></td></tr></table></figure></p><p>自从用了这个小脚本，帮我节省了好多整理文件的时间，果然是科技改变生活啊。</p>]]></content>
+    
+    <summary type="html">
+    
+      Python的os模块包含了很多很有用的关于操作文件和目录的函数。如果你希望你的程序能够与平台无关的话，这个模块是尤为重要的。即它允许一个程序在编写后不需要任何改动，也不会发生任何问题，就可以在Linux和Windows下运行，这也是他的强大之处。
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python消息统计</title>
+    <link href="http://yoursite.com/2014/08/07/python-select-member/"/>
+    <id>http://yoursite.com/2014/08/07/python-select-member/</id>
+    <published>2014-08-07T22:55:25.000Z</published>
+    <updated>2014-08-07T11:58:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是我统计QQ群成员发言数的Python代码，需要依赖<a href="http://pandas.pydata.org/" target="_blank" rel="noopener">pandas</a>库,下载后解压缩文件，然后cd到目标文件夹，执行以下命令：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python setup.py install</span><br></pre></td></tr></table></figure></p><p>然后pandas库就可以使用了，这是我统计发言数的源代码：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series, DataFrame</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_name</span><span class="params">(txt_list)</span>:</span></span><br><span class="line">    name_list =[]</span><br><span class="line">    new_name_list =[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> txt_list:</span><br><span class="line">        a = i.split(<span class="string">' '</span>)</span><br><span class="line">        <span class="keyword">if</span> len(a)==<span class="number">3</span>:</span><br><span class="line">            <span class="keyword">if</span> len(a[<span class="number">1</span>]) ==<span class="number">8</span> <span class="keyword">and</span> len(a[<span class="number">0</span>]) ==<span class="number">10</span>:</span><br><span class="line">                    name_list.append(a[<span class="number">2</span>])</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> name_list:</span><br><span class="line">        <span class="keyword">if</span> i[<span class="number">0</span>]== <span class="string">'【'</span>:</span><br><span class="line">            new_name_list.append(i[<span class="number">4</span>:])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            new_name_list.append(i)</span><br><span class="line">    <span class="keyword">return</span> new_name_list</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    file_dir = <span class="string">r'C:\Users\46474_000\Desktop\一帮逗比欢乐多.txt'</span></span><br><span class="line">    f = open(file_dir,<span class="string">'r'</span>,encoding= <span class="string">'utf-8'</span>).readlines()[<span class="number">8</span>:]</span><br><span class="line">    f = [i.strip() <span class="keyword">for</span> i <span class="keyword">in</span> f <span class="keyword">if</span> i.strip() != <span class="string">''</span>]</span><br><span class="line">    f = f[<span class="number">6</span>:]</span><br><span class="line">    name_list = Series(get_name(f))</span><br><span class="line">    a= name_list.value_counts()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> a.index:</span><br><span class="line">        print(i,a.ix[i])</span><br></pre></td></tr></table></figure></p><p>只要修改一下file_dir将目录指向导出的QQ消息记录就可以运行了。</p>]]></content>
+    
+    <summary type="html">
+    
+      Python, 是一种面向对象、解释型计算机程序设计语言，Python语法简洁而清晰，具有丰富和强大的类库,码代码效率非常高。这是我用Python编写的统计发言数的小脚本。
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo搭建教程(2)</title>
+    <link href="http://yoursite.com/2014/08/07/hexo-2/"/>
+    <id>http://yoursite.com/2014/08/07/hexo-2/</id>
+    <published>2014-08-07T17:11:30.000Z</published>
+    <updated>2014-09-26T14:33:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装指南"><a href="#安装指南" class="headerlink" title="安装指南"></a>安装指南</h2><p>Pacman是一款为Hexo打造的一款扁平化，有着响应式设计的主题。本站正是使用了该主题，同时你也可以访问Demo查看效果。主题源码托管在Github上。</p><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/A-limon/pacman.git themes/pacman</span><br></pre></td></tr></table></figure><p><strong>Pacman需要安装Hexo 2.4.5</strong> 或以上版本 请先升级您的Hexo程序，再启用此主题。</p><h3 id="启用"><a href="#启用" class="headerlink" title="启用"></a>启用</h3><p>修改你的博客根目录下的<code>config.yml</code>配置文件中的<code>theme</code>属性，将其设置为<code>pacman</code>。</p><h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes/pacman</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure><p><strong>请先备份你的<code>_config.yml</code> 文件后再升级</strong></p><h2 id="配置指南"><a href="#配置指南" class="headerlink" title="配置指南"></a>配置指南</h2><p>Pacman主题提供了丰富的配置属性，配置文件<code>_config.yml位</code>于主题根目录下。配置文件中已经包含了详细的英文注释，所以下面就用中文进行说明。</p><h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">##### Menu</span></span><br><span class="line"><span class="attr">menu:</span></span><br><span class="line"><span class="attr">  Home:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">  Archives:</span> <span class="string">/archives</span> </span><br><span class="line"><span class="comment">#### Widgets</span></span><br><span class="line"><span class="attr">widgets:</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">category</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">tag</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">rss</span></span><br><span class="line"><span class="comment">#### RSS</span></span><br><span class="line"><span class="attr">rss:</span> </span><br><span class="line"><span class="comment">#### Image</span></span><br><span class="line"><span class="attr">imglogo:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  src:</span> <span class="string">/img/logo.svg</span> </span><br><span class="line"><span class="attr">  favicon:</span> <span class="string">/img/favicon.ico</span> </span><br><span class="line"><span class="attr">  apple_icon:</span> <span class="string">/img/pacman.jpg</span></span><br><span class="line"><span class="comment">#### Author Avatar Picture</span></span><br><span class="line"><span class="attr">author_img_enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">dataURI:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">author_img_data:</span> </span><br><span class="line"><span class="attr">author_img:</span> <span class="string">/img/author.jpg</span></span><br><span class="line"><span class="comment">#### Font</span></span><br><span class="line"><span class="attr">ShowCustomFont:</span> <span class="literal">true</span>  </span><br><span class="line"><span class="comment">#### Toc</span></span><br><span class="line"><span class="attr">toc:</span></span><br><span class="line"><span class="attr">  article:</span> <span class="literal">true</span> </span><br><span class="line"><span class="attr">  aside:</span> <span class="literal">true</span> </span><br><span class="line"><span class="comment">#### Fancybox</span></span><br><span class="line"><span class="attr">fancybox:</span> <span class="literal">true</span> </span><br><span class="line"><span class="comment">#### Author information</span></span><br><span class="line"><span class="attr">author:</span></span><br><span class="line"><span class="attr">  google_plus:</span> </span><br><span class="line"><span class="attr">  intro_line1:</span> </span><br><span class="line"><span class="attr">  intro_line2:</span> </span><br><span class="line"><span class="attr">  weibo:</span> </span><br><span class="line"><span class="attr">  twitter:</span> </span><br><span class="line"><span class="attr">  github:</span> </span><br><span class="line"><span class="attr">  facebook:</span> </span><br><span class="line"><span class="attr">  tsina:</span> </span><br><span class="line"><span class="comment">#### Comment</span></span><br><span class="line"><span class="attr">duoshuo:</span> </span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">false</span>        </span><br><span class="line"><span class="attr">  short_name:</span> </span><br><span class="line"><span class="comment">#### Share button</span></span><br><span class="line"><span class="attr">jiathis:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">false</span>  </span><br><span class="line"><span class="attr">  id:</span> </span><br><span class="line"><span class="attr">  tsina:</span></span><br><span class="line"><span class="comment">#### Analytics</span></span><br><span class="line"><span class="attr">google_analytics:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  id:</span></span><br><span class="line"><span class="attr">  site:</span></span><br><span class="line"><span class="comment">#### Custom Search</span></span><br><span class="line"><span class="attr">google_cse:</span> </span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  cx:</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      Pacman是一款为Hexo打造的一款扁平化，有着响应式设计的主题。本站正是使用了该主题，同时你也可以访问Demo查看效果。主题源码托管在Github上。
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://yoursite.com/categories/hexo/"/>
+    
+    
+      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo搭建教程(1)</title>
+    <link href="http://yoursite.com/2014/08/07/hexo-1/"/>
+    <id>http://yoursite.com/2014/08/07/hexo-1/</id>
+    <published>2014-08-07T13:48:25.000Z</published>
+    <updated>2014-09-26T14:33:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="概括"><a href="#概括" class="headerlink" title="概括"></a>概括</h2><p>一直想搭建一个博客，但是自己从头搭建一个实在是太费心力，直到我看见了<strong>hexo</strong>，hexo出自台湾大学生 tommy351 之手，是一个基于Node.js的静态博客程序，其编译上百篇文字只需要几秒。hexo生成的静态网页可以直接放到GitHub Pages，BAE，SAE等平台上。先看看tommy是如何吐槽Octopress的 →＿→ <a href="http://zespia.tw/blog/2012/10/11/hexo-debut" target="_blank" rel="noopener">Hexo颯爽登場</a> 。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol><li><a href="http://nodejs.org/" target="_blank" rel="noopener">安装node.js</a></li><li><a href="http://git-scm.com/" target="_blank" rel="noopener">安装git</a></li></ol><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>然后，执行init命令初始化hexo到你指定的目录<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ hexo install</span><br></pre></td></tr></table></figure></p><p>也可cd到你指定的目录然后init</p><h3 id="生成静态页面"><a href="#生成静态页面" class="headerlink" title="生成静态页面"></a>生成静态页面</h3><p>cd 到你的init目录，执行如下命令，生成静态页面至hexo\public\目录。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure></p><h3 id="本地启动"><a href="#本地启动" class="headerlink" title="本地启动"></a>本地启动</h3><p>执行如下命令，启动本地服务，进行文章预览调试。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure></p><p>浏览器输入<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 就可以看到效果。</p>]]></content>
+    
+    <summary type="html">
+    
+      hexo是一个基于Node.js的静态博客程序,出自台湾大学生 tommy351 之手，其编译上百篇文字只需要几秒。
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://yoursite.com/categories/hexo/"/>
+    
+    
+      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一天，新的开始</title>
+    <link href="http://yoursite.com/2014/08/06/first/"/>
+    <id>http://yoursite.com/2014/08/06/first/</id>
+    <published>2014-08-07T02:02:02.000Z</published>
+    <updated>2014-08-07T05:26:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是我在GitHub上的第一篇文章，从今天开始我要甩掉过去的自我，用一年的汗水来敲开美利坚的大门。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这是我在GitHub上的第一篇文章，从今天开始我要甩掉过去的自我，用一年的汗水来敲开美利坚的大门。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+    
+    
+      <category term="飞跃" scheme="http://yoursite.com/tags/%E9%A3%9E%E8%B7%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HongKong</title>
+    <link href="http://yoursite.com/2013/10/07/HongKong/"/>
+    <id>http://yoursite.com/2013/10/07/HongKong/</id>
+    <published>2013-10-08T01:00:00.000Z</published>
+    <updated>2014-08-08T09:00:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;一次说走就走的旅行，背上身上的旅行包，坐上南下的火车，8个小时的硬座，就到了广州。十一的时候，人不是特别多，没有出现帝都和魔都看人海的盛景，从广州火车站出来坐了大概3、4站地铁就到了青年旅社，虽然是第一次住青旅，可是却没让我失望哦，我住的是男生6人间，里面很干净，一点都不乱，比宿舍好一点，有种家的感觉，wifi很快，老板说他办的是100m的，不过我们用wifi，所以达不到那么高，但是确实很快，ipad看视频根本不卡。我们的第一站中山大学，走在中山大学南校区，很多古树，郁郁葱葱的大树，林荫地，阳光漫洒，真的很美，中大的餐厅也挺好的，装修超漂亮，中南的一比果断弱爆了。之后去了沙面，沙面可以相当于北京的东交民巷，里面很多民国时期的使领馆，不过没想到，波兰领事馆和朝鲜领事馆居然还在里面正常工作。晚上的时候我们去了小蛮腰，这是唯一一次让我觉得很挤的时候，十一第一天，人超多，跟着人群，排了一个小时的队，上了小蛮腰，在这里吐槽以下小蛮腰的票价，上到白云观光厅要150元，要上到塔顶又要90元，学生套票要210，真的是有点贵了。到了塔顶真的很棒，一览广州塔美景，上面风很大，还下了一点点小雨，吹风的感觉真的很棒，广州的夜景也很棒，俯瞰海心沙的感觉很好。第二天，睡到自然醒，就去看了漫展，很不错，很多coser，蛮好玩的，还有很多动漫周边卖，以及漫画作者的亲笔签售会。说到广州不能不提它的吃的，早茶真的很好吃，很精致，客家人的慢生活，很悠闲。不过对于我这种肉食动物来说，猪脚饭神马的大爱啊，我会说我在广州和深圳吃了3、4天的潮汕隆江猪脚饭&gt;_&lt;真的好好吃，肥而不腻，再配上酸菜，以及猪骨，苹果，胡萝卜一起熬得老汤，真的是一种享受。<br>&emsp;&emsp;4号，和谐号动车，去了深圳，相比广州，深圳玩的就很少，地铁也没有广州的方便，广州的13条地铁线路真的很强大。高二的时候来到深圳住在老街旁边，没想到这回又是住在老街旁边，一晃三年过去了，可过去的事情还历历在目，白驹过隙，时间飞快&gt;_&lt;这家青旅很有特色，装修很好，而且有很多义工，特别欢乐，老板还切哈密瓜给我们吃。去了华强北，里面好多电子产品，铺天盖地，参观了一发，还不错。第二天一个人，默默地早起，开始一天的香港之旅，由于是L签我提前一天，在淘宝上找好卖家，花了5块钱组了个散团过了关，要是在口岸现场要50，非自由行城市童鞋要注意哦，出发的早，于是花了40分钟就过了关，踏进了资本主义社会的土地，嘎嘎。花了$150办了一张八达通卡，八达通跟我们的校园卡差不多，基本上全港的便利店7-11，麦当劳，地铁和巴士都可以刷的。在这里吐槽一下资本主义的罪恶，广州从城西坐到城东才5块钱啊，来回才10块钱，我从罗湖坐到中环又从中环坐回来居然花了我100+港币，心在滴血有木有，让我这穷游一族情何以堪，去了ifc和又一城，apple store果然很棒，土豪金果断是三种中最好看的，本来以为土狗灰或者东北银会好一点，结果看了真机，还是土豪金漂亮，香槟色淡淡的，手感有非常棒，在丰泽和苏宁看了surface，pro和rt的差距真心不是一点半点，pro的那根电磁笔大爱啊，可惜买不起T^T。在香港逛了一天，发现什么都买不起，太贵了，中午去麦当劳吃了一顿，那张餐纸很有爱的，嘿嘿，在香港简单逛了一圈，晚上就回深圳了，最后一天去了中英街，真的很坑爹，不要去，没有什么好看的，卖的东西也不便宜呢。不过可以去莲花山看日落和小梅沙看海，都很棒，可是我去了香港，就木有去，算是遗憾吧，下回有机会再去，八达通了还有几十港币呢。<br>&emsp;&emsp;坐了10几个小时的硬座，2点/3点/4点/5点醒了好多次，早上滚回了长沙，头还是晕晕乎乎的，睡了一下午终于缓过来了，这趟穷游之旅还是蛮好的，背上旅行包，一次说走就走的旅行。</p>]]></content>
+    
+    <summary type="html">
+    
+      穗港澳旅游小记
+    
+    </summary>
+    
+      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+    
+    
+      <category term="旅行" scheme="http://yoursite.com/tags/%E6%97%85%E8%A1%8C/"/>
+    
+  </entry>
+  
+</feed>
